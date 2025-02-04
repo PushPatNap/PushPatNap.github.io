@@ -2,7 +2,6 @@
 // import type { GetStaticPaths  } from "astro";
 import { getCollection, type CollectionEntry, getEntry } from "astro:content";
 import Layout from '../../layouts/Layout.astro';
-import H1 from '../../components/H1.astro';
 import Main from '../../components/Main.astro';
 import { getEntries } from "astro:content";
 // import { getCollection } from 'astro:content';
@@ -21,6 +20,12 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Content />
+
+<Layout title=entry.data.title>
+	<Main>
+		<!-- <H1 text="My Blog!" /> -->
+        <Content />
+	</Main>
+</Layout>
 
 
