@@ -1,3 +1,16 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+}
+const { title, description, image } = Astro.props;
+import Header from '../components/Header.astro';
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+---
+
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,9 +18,14 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta property="og:image" content={image} />
+		<link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
+		<!-- <viewTransitions /> -->
+		<ClientRouter />
+		<title>{title}</title>
 	</head>
-	<body>
+	<body class="min-h-screen">
+		<Header />
 		<slot />
 	</body>
 </html>
@@ -20,3 +38,4 @@
 		height: 100%;
 	}
 </style>
+
