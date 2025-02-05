@@ -4,21 +4,28 @@ import H1 from '../components/H1.astro';
 import Main from '../components/Main.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
-// import Search from "astro-pagefind/components/Search";
+import Search from "astro-pagefind/components/Search";
 ---
 
-<!-- <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} /> -->
+
 <Layout title="QQ-XK Starter">
 	<Main>
 		<H1 text="贴贴！" />
+		<!-- <div id="search" ></div> -->
+		<Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
 	</Main>
-	<div id="search"></div>
-	<script>
+	
+	<!-- <script is:inline>
 		window.addEventListener('DOMContentLoaded', (event) => {
+			
+			// new PagefindUI({ element: "#search", showSubResults: true });
 			// @ts-ignore
-			new PagefindUI({ element: "#search", showSubResults: true });
+			if (typeof PagefindUI !== "undefined") {
+				// @ts-ignore
+        		new PagefindUI({ element: "#search", showSubResults: true });
+      		}
 		});
-	</script>
+	</script> -->
 </Layout>
 
 
